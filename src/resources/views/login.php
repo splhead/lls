@@ -11,7 +11,7 @@
 	<div class="container">
 
 	   <form action="" class="col-lg-4 col-lg-offset-4">
-	   		<img src="images/logo.png" class="center-block">
+	   		<img src="images/logo.png" class="center-block img-circle">
 	   		<labe for="usuario" class="sr-only">usuario/</labe>
 	   		<input type="text" name="usuario" id="usuario" class="form-control" placeholder="usu&aacute;rio" required autofocus />
 	   		<label for="senha" class="sr-only">senha</label>

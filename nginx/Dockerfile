@@ -7,7 +7,7 @@ FROM nginx:stable
 #ENV http_proxy "http://172.22.0.187:3128/"
 #ENV https_proxy "http://172.22.0.187:3128/"
 #RUN apt-get update && apt-get install -y nginx php7.0-fpm php7.0-mysql
-COPY default.conf /etc/nginx/sites-available/default
+#COPY default.conf /etc/nginx/sites-available/default
 COPY default.conf /etc/nginx/conf.d/default.conf
 #RUN mkdir /www
 #VOLUME /www

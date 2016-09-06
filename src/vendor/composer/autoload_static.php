@@ -302,6 +302,7 @@ class ComposerStaticInite305f43a8b35c521782ba484ef05b24a
     );
 
     public static $classMap = array (
+        'CriarTabelaUsuarios' => __DIR__ . '/../..' . '/database/migrations/2016_09_06_140441_criar_tabela_usuarios.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'ExampleTest' => __DIR__ . '/../..' . '/tests/ExampleTest.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

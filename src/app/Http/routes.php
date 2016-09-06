@@ -13,5 +13,11 @@
 
 $app->get('/', function () use ($app) {
     // return $app->version();
-    return view("login");
+    return view("login");    
+});
+
+$app->get('usuarios/', function () use ($app) {
+
+    $users = DB::table('usuarios')->get();
+    return $users;
 });

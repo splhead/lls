@@ -1,7 +1,7 @@
 FROM php:fpm
 
-ENV http_proxy="http://172.22.0.187:3128" \
-    https_proxy="http://172.22.0.187:3128"
+#ENV http_proxy="http://172.22.0.187:3128" \
+#    https_proxy="http://172.22.0.187:3128"
 
 RUN apt-get update && apt-get install -y \
     libmcrypt-dev \

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -20,8 +21,27 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    // overhide para aceitar o cpf no lugar do email para autenticar
+    public function username()
+    {
+        return 'cpf';
+    }
+
+    // overide para aceitar o campo senha com o nome "senha"
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'senha');
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required', 'senha' => 'required',
+        ]);
+    }
+
     /**
-     * Where to redirect users after login.
+     * Where to redirect users after login / registration.
      *
      * @var string
      */

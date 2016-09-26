@@ -28,7 +28,7 @@ return [
         'array'   => 'The :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'The :attribute field must be true or false.',
-    'confirmed'            => 'A confirma&ccedil;&atilde;o de :attribute n&atilde;o coincidem.',
+    'confirmed'            => 'A confirma&ccedil;&atilde;o de :attribute n&atilde;o &eacute; igual.',
     'date'                 => 'The :attribute is not a valid date.',
     'date_format'          => 'The :attribute does not match the format :format.',
     'different'            => 'The :attribute and :other must be different.',
@@ -79,7 +79,7 @@ return [
     ],
     'string'               => 'The :attribute must be a string.',
     'timezone'             => 'The :attribute must be a valid zone.',
-    'unique'               => 'The :attribute has already been taken.',
+    'unique'               => 'Este :attribute j&aacute; foi utilizado.',
     'url'                  => 'The :attribute format is invalid.',
 
     /*

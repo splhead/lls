@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,5 +16,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/user', function (Request $request) {
-    return $request->user();
+    return User::all(); //$request->user();
 })->middleware('auth:api');
+
+Route::get('/feriados/listar', 'FeriadoController@listar');//->middleware('auth:api');

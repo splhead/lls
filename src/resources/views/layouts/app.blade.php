@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ elixir('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ elixir('/css/jquery-ui.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -80,6 +81,15 @@
     @yield('content')
 
     <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
     <script src="/js/app.js"></script>
+
+    <script>
+        $(function() {
+            @yield('postJquery')
+        });
+    </script>
+
 </body>
 </html>

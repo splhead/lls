@@ -70,6 +70,7 @@ class RegisterController extends Controller
             'cpf' => $data['cpf'],
             // 'password' => bcrypt($data['password']),
             'senha' => bcrypt($data['senha']),
+            'api_token' => str_random(60),
         ]);
     }
 }

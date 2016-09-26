@@ -15,6 +15,12 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 
+Vue.component('mferiados', require('./components/Feriados.vue'));
+
 const app = new Vue({
-    el: 'body'
+    el: 'body', 
+
+    data: {
+    	title: 'Qualquer coisa'
+    }
 });

@@ -16,28 +16,29 @@ class FeriadoController extends Controller
 
     function __construct(FeriadoRepository $feriado)
     {
-    	// $this->middleware('auth');
+    	$this->middleware('auth:web,api');
     	$this->feriado = $feriado;
     }
 
     public function index()
     {
-        $feriados = $this->feriado->todos();
-        return view('feriado.index', ['feriados' => $feriados]);  
+        // $feriados = $this->feriado->todos();
+        // return view('feriado.index', ['feriados' => $feriados]);
+        return view('feriado.index');
     }
 
     public function listar()
     {
-    	$feriados = $this->feriado->todos();
-    	return view('feriado.index', ['feriados' => $feriados]);
-        // return \Response::json($this->feriado->todos(), 200);
+    	/*$feriados = $this->feriado->todos();
+    	return view('feriado.index', ['feriados' => $feriados]);*/
+        return \Response::json($this->feriado->todos(), 200);
 
     }
 
     public function criar(Request $request)
     {
         $this->validate($request, [
-            'data' => 'required|unique:feriados',
+            'data' => 'required|date|date_format:Y-m-d|unique:feriados',
             'descricao' => 'required',
         ]);
 

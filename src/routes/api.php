@@ -19,4 +19,4 @@ Route::get('/user', function (Request $request) {
     return User::all(); //$request->user();
 })->middleware('auth:api');
 
-Route::get('/feriados/listar', 'FeriadoController@listar');//->middleware('auth:api');
+Route::get('/feriados', 'FeriadoController@listar')->middleware('auth:api');

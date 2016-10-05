@@ -7,8 +7,6 @@
 
 			return {
 
-				list: [],
-				
 				sortProperty: 'data',
 
 				sortDirection: 1 ,
@@ -39,9 +37,14 @@
 
 		ready() {
 
-			this.list = JSON.parse(this.feriados)
+			this.$http.get('api/user')
+    			.then(response => {
+        		console.log(response.data);
+    		});
 
-			// this.$http.get('/api/feriados/listar').then((req) => this.feriados = req.data)
+			// this.list = JSON.parse(this.feriados)
+
+			this.$http.get('/api/feriados').then((req) => this.feriados = req.data)
 		}
 
 	}
@@ -62,7 +65,7 @@
 			</thead>
 			<tbody>
 				
-				<tr v-for="feriado in list | filterBy filterTerm | orderBy sortProperty sortDirection">
+				<tr v-for="feriado in feriados | filterBy filterTerm | orderBy sortProperty sortDirection">
 					<td>{{ feriado.data }}</td>
 					<td>{{ feriado.descricao }}</td>
 				</tr>

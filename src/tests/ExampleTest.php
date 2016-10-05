@@ -15,5 +15,6 @@ class ExampleTest extends TestCase
     {
         $this->visit('/')
              ->see('Laravel');
+        $this->seeStatusCode(200);
     }
 }

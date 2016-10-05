@@ -13,12 +13,18 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
+
 Vue.component('example', require('./components/Example.vue'));
 
 Vue.component('mferiados', require('./components/Feriados.vue'));
 
+Vue.http.interceptors.push(function (request, next) {
+    request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
+    next();
+});
+
 const app = new Vue({
-    el: 'body', 
+    el: 'body',
 
     data: {
     	title: 'Qualquer coisa'

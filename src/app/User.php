@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'cpf', 'senha', 'api_token',
+        'nome', 'email', 'cpf', 'senha',
     ];
 
     /**
@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'remember_token', 'cpf', 'senha', 'api_token',
+        'remember_token', 'cpf', 'senha',
     ];
 
     public function getAuthPassword() {

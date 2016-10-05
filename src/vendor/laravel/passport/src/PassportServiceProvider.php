@@ -14,7 +14,6 @@ use League\OAuth2\Server\Grant\PasswordGrant;
 use Laravel\Passport\Bridge\PersonalAccessGrant;
 use League\OAuth2\Server\Grant\RefreshTokenGrant;
 use Laravel\Passport\Bridge\RefreshTokenRepository;
-use League\OAuth2\Server\Grant\ClientCredentialsGrant;
 
 class PassportServiceProvider extends ServiceProvider
 {
@@ -28,7 +27,7 @@ class PassportServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'passport');
 
         if ($this->app->runningInConsole()) {
-            $this->registerMigrations();
+            $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
             $this->publishes([
                 __DIR__.'/../resources/views' => base_path('resources/views/vendor/passport'),
@@ -44,22 +43,6 @@ class PassportServiceProvider extends ServiceProvider
                 Console\KeysCommand::class,
             ]);
         }
-    }
-
-    /**
-     * Register Passport's migration files.
-     *
-     * @return void
-     */
-    protected function registerMigrations()
-    {
-        if (Passport::$runsMigrations) {
-            return $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        }
-
-        $this->publishes([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'passport-migrations');
     }
 
     /**
@@ -99,10 +82,6 @@ class PassportServiceProvider extends ServiceProvider
 
                 $server->enableGrantType(
                     new PersonalAccessGrant, new DateInterval('P100Y')
-                );
-
-                $server->enableGrantType(
-                    new ClientCredentialsGrant, Passport::tokensExpireIn()
                 );
             });
         });
@@ -176,8 +155,8 @@ class PassportServiceProvider extends ServiceProvider
             $this->app->make(Bridge\ClientRepository::class),
             $this->app->make(Bridge\AccessTokenRepository::class),
             $this->app->make(Bridge\ScopeRepository::class),
-            'file://'.Passport::keyPath('oauth-private.key'),
-            'file://'.Passport::keyPath('oauth-public.key')
+            'file://'.storage_path('oauth-private.key'),
+            'file://'.storage_path('oauth-public.key')
         );
     }
 
@@ -191,7 +170,7 @@ class PassportServiceProvider extends ServiceProvider
         $this->app->singleton(ResourceServer::class, function () {
             return new ResourceServer(
                 $this->app->make(Bridge\AccessTokenRepository::class),
-                'file://'.Passport::keyPath('oauth-public.key')
+                'file://'.storage_path('oauth-public.key')
             );
         });
     }

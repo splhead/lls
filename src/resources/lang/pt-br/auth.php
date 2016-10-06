@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'CPF ou senha incorretos.',
+    'failed' => 'Usuário ou senha não encontrados.',
     'throttle' => 'Muitas tentativas. Por favor tente novamente em :seconds segundos.',
 
 ];

@@ -20,27 +20,27 @@
         ]); ?>
     </script>
 </head>
-<body>    
+<body>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">            
+            <div class="col-md-8 col-md-offset-2">
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                     <img src="/img/logo.png" alt="" class="center-block img-circle"/>
 
                     {{ csrf_field() }}
-                    <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
-                        <label for="cpf" class="col-md-4 control-label">CPF</label>
+                    <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                        <label for="username" class="col-md-4 control-label">Usuário</label>
 
                         <div class="col-md-6">
-                            <input id="cpf" type="text" class="form-control" name="cpf" value="{{ old('cpf') }}" required autofocus maxlength="11">
+                            <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus maxlength="11">
 
-                            @if ($errors->has('cpf'))
+                            @if ($errors->has('username'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('cpf') }}</strong>
+                                    <strong>{{ $errors->first('username') }}</strong>
                                 </span>
                             @endif
                         </div>
-                    </div>                     
+                    </div>
 
                     <div class="form-group{{ $errors->has('senha') ? ' has-error' : '' }}">
                         <label for="senha" class="col-md-4 control-label">Senha</label>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </form>
-            </div>        
+            </div>
         </div>
     </div>
 

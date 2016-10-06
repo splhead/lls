@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('email')->unique();
-            $table->string('cpf', 11)->unique();
+            $table->string('username', 11)->unique();
             $table->string('senha');
             // $table->string('api_token', 60)->unique();
             $table->rememberToken();
@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
         factory(User::class)->create([
             'nome' => 'Silas Pinho Ladislau',
             'email' => 'splhead@gmail.com',
-            'cpf' => '84389796291',
+            'username' => '84389796291',
             'senha' => bcrypt('spl#e@d'),
         ]);
     }

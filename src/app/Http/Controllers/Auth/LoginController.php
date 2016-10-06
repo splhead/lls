@@ -24,7 +24,7 @@ class LoginController extends Controller
     // overhide para aceitar o cpf no lugar do email para autenticar
     public function username()
     {
-        return 'cpf';
+        return 'username';
     }
 
     // overide para aceitar o campo senha com o nome "senha"

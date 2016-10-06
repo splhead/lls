@@ -37,15 +37,15 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
-                    <label for="cpf" class="col-md-4 control-label">CPF</label>
+                <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                    <label for="username" class="col-md-4 control-label">Usuário</label>
 
                     <div class="col-md-6">
-                        <input id="cpf" type="text" class="form-control" name="cpf" value="{{ old('cpf') }}" required>
+                        <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
 
-                        @if ($errors->has('cpf'))
+                        @if ($errors->has('username'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('cpf') }}</strong>
+                                <strong>{{ $errors->first('username') }}</strong>
                             </span>
                         @endif
                     </div>

@@ -18,10 +18,10 @@ Vue.component('example', require('./components/Example.vue'));
 
 Vue.component('mferiados', require('./components/Feriados.vue'));
 
-Vue.http.interceptors.push(function (request, next) {
+/*Vue.http.interceptors.push(function (request, next) {
     request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
     next();
-});
+});*/
 
 const app = new Vue({
     el: 'body',

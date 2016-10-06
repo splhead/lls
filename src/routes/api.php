@@ -16,7 +16,7 @@ use App\User;
 */
 
 Route::get('/user', function (Request $request) {
-    return User::all(); //$request->user();
+    return $request->user();// User::all();
 })->middleware('auth:api');
 
 Route::get('/feriados', 'FeriadoController@listar')->middleware('auth:api');

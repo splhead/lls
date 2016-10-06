@@ -15,7 +15,7 @@ class Feriado extends Model
 	public $timestamps = false;
 	public $primaryKey = 'data';
 	public $incrementing = false;
-	
+
     protected $fillable = [
         'data', 'descricao',
     ];
@@ -27,6 +27,6 @@ class Feriado extends Model
 
     public function formDataAttribute($value)
     {
-    	return Carbon::parse($value)->format('d/m/Y');    	
+    	return Carbon::parse($value)->format('d/m/Y');
     }
 }

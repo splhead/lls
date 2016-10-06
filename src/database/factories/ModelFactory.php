@@ -12,12 +12,12 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password, $cpf;
+    static $password;
 
     $data = [
         'nome' => $faker->name,
         'email' => $faker->safeEmail,
-        'cpf' => $cpf ?: $cpf = '12341234321', // melhorar
+        'username' => $faker->userName,
         'senha' => $password ?: $password = bcrypt('secret'),
         // 'api_token' => str_random(60),
         'remember_token' => str_random(10),

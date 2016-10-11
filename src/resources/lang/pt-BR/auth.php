@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Usuário ou senha não encontrados.',
-    'throttle' => 'Muitas tentativas. Por favor tente novamente em :seconds segundos.',
+    'failed'   => 'Credenciais informadas não correspondem com nossos registros.',
+    'throttle' => 'Você realizou muitas tentativas de login. Favor tentar novamente em :seconds segundos.',
 
 ];
